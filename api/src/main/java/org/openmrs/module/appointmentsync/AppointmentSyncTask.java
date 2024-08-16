@@ -25,8 +25,10 @@ public class AppointmentSyncTask extends AbstractTask {
         List<PatientAppointment> dueAppointments = service.getAllAppointments(); // Only those due in 3 days
 
         for (PatientAppointment pa : dueAppointments) {
-            if (!published(pa.getPatientAppointmentId(), url,username,password)) {
-                Util.postAppointmentApi(url, username,password,Util.convertObjectToJson(pa), "POST");
+            if(!"".equals(pa.getPhone())) { //Publish only appointments that have phone number
+                if (!published(pa.getPatientAppointmentId(), url, username, password)) {
+                    Util.postAppointmentApi(url, username, password, Util.convertObjectToJson(pa), "POST");
+                }
             }
         }
 

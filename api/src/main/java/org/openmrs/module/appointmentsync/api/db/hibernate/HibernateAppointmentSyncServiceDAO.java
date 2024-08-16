@@ -72,7 +72,7 @@ public class HibernateAppointmentSyncServiceDAO implements AppointmentSyncServic
 				"left join location l1 on l.parent_location = l1.location_id  " +
 				"left join person c on a.patient_id = c.person_id " +
 				"left join person_attribute pa1 on a.patient_id = pa1.person_id and pa1.person_attribute_type_id = 15 " +
-				"left join person_attribute pa2 on a.patient_id = pa2.person_id and pa2.person_attribute_type_id = 27 " +
+				"left join person_attribute pa2 on a.patient_id = pa2.person_id and pa2.person_attribute_type_id = 26 " +
 				"where pit.patient_identifier_type_id = 3 " +
 				"and DATEDIFF(start_date_time, now()) = 3 group by a.patient_id;");
 
@@ -128,7 +128,7 @@ public class HibernateAppointmentSyncServiceDAO implements AppointmentSyncServic
 				"left join location l1 on l.parent_location = l1.location_id  " +
 				"left join person c on a.patient_id = c.person_id " +
 				"left join person_attribute pa1 on a.patient_id = pa1.person_id and pa1.person_attribute_type_id = 15 " +
-				"left join person_attribute pa2 on a.patient_id = pa2.person_id and pa2.person_attribute_type_id = 27 " +
+				"left join person_attribute pa2 on a.patient_id = pa2.person_id and pa2.person_attribute_type_id = 26 " +
 				"where pit.patient_identifier_type_id = 3 " +
 				"and DATEDIFF(start_date_time, now()) = 6 " +
 				"and a.status = 'Missed' group by a.patient_id;");
